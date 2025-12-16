@@ -23,7 +23,7 @@
 
      <!-- Heading -->
      <div class="sidebar-heading">
-         Master User
+        Data User
      </div>
 
      <li class="nav-item">
@@ -33,7 +33,7 @@
      </li>
 
      <li class="nav-item">
-         <a class="nav-link" href="tables.html">
+         <a class="nav-link" href="{{ route('admin.jabatan') }}">
              <i class="fas fa-fw fa-folder"></i>
              <span>Jabatan</span></a>
      </li>
