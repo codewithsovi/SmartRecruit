@@ -14,7 +14,9 @@
                     <span class="icon text-white-50">
                         <i class="fas fa-plus"></i>
                     </span>
-                    <span class="text">Tambah Jabatan</span>
+                    {{-- <span class="text">Tambah Jabatan</span> --}}
+
+                    @include('jabatan.modal-create')
                 </a>
             </div>
             <div class="card-body">
@@ -32,11 +34,13 @@
                                 <td>No</td>
                                 <td>Nama Jabatan</td>
                                 <td>
-                                    <a href="#" class="btn btn-warning btn-icon-split">
+                                    {{-- <a href="#" class="btn btn-warning btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-edit"></i>
                                         </span>
-                                    </a>
+                                    </a> --}}
+                                    @include('jabatan.modal-edit')
+                                    
                                     <a href="#" class="btn btn-danger btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-trash"></i>
