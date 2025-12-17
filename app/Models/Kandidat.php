@@ -6,5 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kandidat extends Model
 {
-    //
+    protected $table = 'kandidats';
+
+    protected $fillable = [
+        'nama_kandidat',
+        'jabatan_id',
+        'email',
+        'telepon',
+    ];
+
+    public function jabatan()
+    {
+        return $this->belongsTo(Jabatan::class);
+    }
+
+    public function alternatif()
+    {
+        return $this->hasMany(Alternatif::class);
+    }
 }
