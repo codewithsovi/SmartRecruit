@@ -9,7 +9,6 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Jabatan</h6>
                 <a href="#" class="btn btn-primary btn-icon-split d-flex align-items-center float-right">
                     <span class="icon text-white-50">
                         <i class="fas fa-plus"></i>
@@ -30,24 +29,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>No</td>
-                                <td>Nama Jabatan</td>
-                                <td>
-                                    {{-- <a href="#" class="btn btn-warning btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-edit"></i>
-                                        </span>
-                                    </a> --}}
-                                    @include('jabatan.modal-edit')
-                                    
-                                    <a href="#" class="btn btn-danger btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
+                            @foreach ($jabatans as $jabatan)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $jabatan->nama_jabatan }}</td>
+                                    <td>
+                                        <div class="d-flex gap-5">
+                                            @include('jabatan.modal-edit')
+
+                                            <form action="{{ route('admin.jabatan.delete', $jabatan->id) }}" method="POST"
+                                                onsubmit="return confirm('Yakin ingin menghapus jabatan ini?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

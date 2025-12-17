@@ -6,7 +6,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
 
-            <form action="" method="POST">
+            <form action="{{ route('admin.jabatan.store') }}" method="POST">
                 @csrf
 
                 <div class="modal-header bg-primary">
@@ -33,7 +33,6 @@
                         Simpan
                     </button>
                 </div>
-
             </form>
         </div>
     </div>

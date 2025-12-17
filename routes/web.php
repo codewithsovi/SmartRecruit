@@ -10,5 +10,14 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('/jabatan', [JabatanController::class, 'index'])->name('admin.jabatan');
+
+    Route::prefix('jabatan')
+        ->as('admin.jabatan.')
+        ->controller(JabatanController::class)
+        ->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/store', 'store')->name('store');
+            Route::put('/update/{jabatan}', 'update')->name('update');
+            Route::delete('/delete/{jabatan}', 'destroy')->name('delete');
+        });
 });

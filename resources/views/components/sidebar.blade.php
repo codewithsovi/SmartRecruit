@@ -33,7 +33,7 @@
      </li>
 
      <li class="nav-item">
-         <a class="nav-link" href="{{ route('admin.jabatan') }}">
+         <a class="nav-link" href="{{ route('admin.jabatan.index') }}">
              <i class="fas fa-fw fa-folder"></i>
              <span>Jabatan</span></a>
      </li>
