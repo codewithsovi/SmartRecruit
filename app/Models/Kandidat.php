@@ -11,8 +11,6 @@ class Kandidat extends Model
     protected $fillable = [
         'nama_kandidat',
         'jabatan_id',
-        'email',
-        'telepon',
     ];
 
     public function jabatan()
