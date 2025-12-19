@@ -24,11 +24,53 @@
 
 <body id="page-top">
 
+    {{-- ================= GLOBAL ALERT TOP CENTER ================= --}}
+    @if (session('success'))
+        <div id="globalAlert"
+            style="
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 99999;
+                background-color: #6cb6ff;
+                color: #ffffff;
+                padding: 14px 26px;
+                border-radius: 6px;
+                min-width: 320px;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0,0,0,.15);
+            ">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div id="globalAlert"
+            style="
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 99999;
+                background-color: #6cb6ff;
+                color: #ffffff;
+                padding: 14px 26px;
+                border-radius: 6px;
+                min-width: 320px;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0,0,0,.15);
+            ">
+            {{ $errors->first() }}
+        </div>
+    @endif
+    {{-- ================= END GLOBAL ALERT ================= --}}
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
-       @include('components.sidebar')
+        @include('components.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -99,6 +141,14 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('startbootstrap') }}/js/demo/chart-area-demo.js"></script>
     <script src="{{ asset('startbootstrap') }}/js/demo/chart-pie-demo.js"></script>
+
+    {{-- AUTO CLOSE ALERT --}}
+    <script>
+        setTimeout(() => {
+            const alert = document.getElementById('globalAlert');
+            if (alert) alert.remove();
+        }, 3000);
+    </script>
 
 </body>
 
