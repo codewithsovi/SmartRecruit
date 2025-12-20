@@ -4,6 +4,7 @@ use App\Models\Kandidat;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KandidatController;
+use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
@@ -31,5 +32,15 @@ Route::prefix('admin')->group(function () {
             Route::post('/store', 'store')->name('store.byJabatan');
             Route::put('/update/{kandidat}', 'update')->name('update.byJabatan');
             Route::delete('/delete/{kandidat}', 'destroy')->name('delete.byJabatan');
+        });
+
+    Route::prefix('kriteria')
+        ->as('admin.kriteria.')
+        ->controller(KriteriaController::class)
+        ->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/store', 'store')->name('store');
+            Route::put('/update/{kriteria}', 'update')->name('update');
+            Route::delete('/delete/{kriteria}', 'destroy')->name('delete');
         });
 });

@@ -12,39 +12,29 @@ class KriteriaController extends Controller
      */
     public function index()
     {
-        //
+        $kriterias = Kriteria::all();
+        return view('kriteria.kriteria', compact('kriterias'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
-    }
+        try {
+            $request->validate([
+                'nama_kriteria' => 'required|string|max:255',
+                'min' => 'required|numeric|min:0|max:100',
+                'max' => 'required|numeric|min:0|max:100',
+            ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Kriteria $kriteria)
-    {
-        //
-    }
+            Kriteria::create([
+                'nama_kriteria' => $request->nama_kriteria,
+                'min' => $request->min,
+                'max' => $request->max,
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return redirect()->back()->withErrors($e->errors())->withInput();
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Kriteria $kriteria)
-    {
-        //
+        return redirect()->route('admin.kriteria.index')->with('success', 'Kriteria berhasil ditambahkan.');
     }
 
     /**
@@ -52,7 +42,23 @@ class KriteriaController extends Controller
      */
     public function update(Request $request, Kriteria $kriteria)
     {
-        //
+        try {
+            $request->validate([
+                'nama_kriteria' => 'required|string|max:255',
+                'min' => 'required|numeric|min:0|max:100',
+                'max' => 'required|numeric|min:0|max:100',
+            ]);
+
+            $kriteria->update([
+                'nama_kriteria' => $request->nama_kriteria,
+                'min' => $request->min,
+                'max' => $request->max,
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return redirect()->back()->withErrors($e->errors())->withInput();
+        }
+
+        return redirect()->route('admin.kriteria.index')->with('success', 'Kriteria berhasil diperbarui.');
     }
 
     /**
@@ -60,6 +66,7 @@ class KriteriaController extends Controller
      */
     public function destroy(Kriteria $kriteria)
     {
-        //
+        $kriteria->delete();
+        return redirect()->route('admin.kriteria.index')->with('success', 'Kriteria berhasil dihapus.');
     }
 }
