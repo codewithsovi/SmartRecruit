@@ -23,12 +23,12 @@
 
      <!-- Heading -->
      <div class="sidebar-heading">
-        Data User
+        Data Master
      </div>
 
      <li class="nav-item">
          <a class="nav-link" href="">
-             <i class="fas fa-fw fa-chart-area"></i>
+             <i class="fas fa-fw fa-folder"></i>
              <span>User</span></a>
      </li>
 
@@ -42,18 +42,18 @@
 
      <!-- Heading -->
      <div class="sidebar-heading">
-         Master data
+         Fuzzy Logic
      </div>
 
      <li class="nav-item">
-         <a class="nav-link" href="tables.html">
-             <i class="fas fa-fw fa-chart-area"></i>
+         <a class="nav-link" href="{{ route('admin.kriteria.index') }}">
+             <i class="fas fa-fw fa-folder"></i>
              <span>Kriteria & Himpunan Fuzzy</span>
          </a>
      </li>
      <li class="nav-item">
          <a class="nav-link" href="tables.html">
-             <i class="fas fa-fw fa-chart-area"></i>
+             <i class="fas fa-fw fa-folder"></i>
              <span>Aturan Fuzzy</span>
          </a>
      </li>
@@ -71,7 +71,7 @@
      </li>
      <li class="nav-item">
          <a class="nav-link" href="tables.html">
-             <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-fw fa-folder"></i>
              <span>Hasil Akhir</span>
          </a>
      </li>
