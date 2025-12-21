@@ -6,6 +6,7 @@ use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KandidatController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HimpunanFuzzyController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -42,5 +43,15 @@ Route::prefix('admin')->group(function () {
             Route::post('/store', 'store')->name('store');
             Route::put('/update/{kriteria}', 'update')->name('update');
             Route::delete('/delete/{kriteria}', 'destroy')->name('delete');
+        });
+
+    Route::prefix('himpunan')
+        ->as('admin.himpunan.')
+        ->controller(HimpunanFuzzyController::class)
+        ->group(function () {
+            Route::get('/himpunan/{kriteria_id}', 'index')->name('index.byKriteria');
+            Route::post('/store', 'store')->name('store.byKriteria');
+            Route::put('/update/{himpunan}', 'update')->name('update.byKriteria');
+            Route::delete('/delete/{himpunan}', 'destroy')->name('delete.byKriteria');
         });
 });

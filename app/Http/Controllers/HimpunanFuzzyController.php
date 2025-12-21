@@ -2,33 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\HimpunanFuzzy;
+use App\Models\Kriteria;
 use Illuminate\Http\Request;
+use App\Models\HimpunanFuzzy;
 
 class HimpunanFuzzyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($kriteria_id)
     {
-        //
+        $kriteria = Kriteria::findOrFail($kriteria_id);
+        $himpunans = HimpunanFuzzy::where('kriteria_id', $kriteria_id)->get();
+        return view('himpunan.himpunan', compact('himpunans', 'kriteria_id', 'kriteria'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
