@@ -23,6 +23,7 @@
                         <label class="text-dark">Min</label>
                         <input type="number" name="min" class="form-control"
                             value="{{ $kriteria->min }}" required>
+                            
                         <label class="text-dark">Max</label>
                         <input type="number" name="max" class="form-control"
                             value="{{ $kriteria->max }}" required>

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('himpunan_fuzzies', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_himpunan');
+            $table->enum('nama_himpunan', ['rendah', 'sedang', 'tinggi']);
             $table->enum('kurva', ['naik', 'turun', 'segitiga', 'trapesium']);
             $table->float('a');
             $table->float('b');

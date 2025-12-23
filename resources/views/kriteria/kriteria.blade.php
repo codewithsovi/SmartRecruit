@@ -51,6 +51,12 @@
                                                     </span>
                                                 </button>
                                             </form>
+
+                                            <a href="{{ route('admin.himpunan.index.byKriteria', $kriteria->id) }}" class="btn btn-info btn-icon-split me-2">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-eye"></i>
+                                                </span>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>
