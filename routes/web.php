@@ -51,7 +51,7 @@ Route::prefix('admin')->group(function () {
         ->group(function () {
             Route::get('/himpunan/{kriteria_id}', 'index')->name('index.byKriteria');
             Route::post('/store', 'store')->name('store.byKriteria');
-            Route::put('/update/{himpunan}', 'update')->name('update.byKriteria');
-            Route::delete('/delete/{himpunan}', 'destroy')->name('delete.byKriteria');
+            Route::put('/update/{himpunanFuzzy}', 'update')->name('update.byKriteria');
+            Route::delete('/delete/{himpunanFuzzy}', 'destroy')->name('delete.byKriteria');
         });
 });

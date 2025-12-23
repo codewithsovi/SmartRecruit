@@ -57,7 +57,7 @@ class HimpunanFuzzyController extends Controller
                 'kriteria_id' => 'required|exists:kriterias,id',
             ]);
 
-            HimpunanFuzzy::update($request->all());
+            $himpunanFuzzy->update($request->all());
 
         } catch (\Illuminate\Validation\ValidationException $e) {
             return redirect()->back()->withErrors($e->errors())->withInput(); 

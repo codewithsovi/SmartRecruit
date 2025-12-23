@@ -27,7 +27,8 @@
                                 <th>Nama Himpunan</th>
                                 <th>Kurva</th>
                                 <th>Domain</th>
-                                <th>Aksi</th>              </tr>
+                                <th>Aksi</th>              
+                            </tr>
                         </thead>
                         <tbody>
                             @foreach ($himpunans as $himpunan)
