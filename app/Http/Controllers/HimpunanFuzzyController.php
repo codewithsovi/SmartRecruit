@@ -24,31 +24,45 @@ class HimpunanFuzzyController extends Controller
      */
     public function store(Request $request)
     {
-        
+        try {
+        $request->validate([
+            'nama_himpunan' => 'required|in:rendah,sedang,tinggi',
+            'kurva' => 'required|in:naik,turun,segitiga,trapesium',
+            'a' => 'required|numeric',
+            'b' => 'required|numeric',
+            'c' => 'nullable|numeric',
+            'd' => 'nullable|numeric',
+            'kriteria_id' => 'required|exists:kriterias,id',
+        ]);
+
+        HimpunanFuzzy::create($request->all());
+
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        return redirect()->back()->withErrors($e->errors())->withInput();
+    }
+        return redirect()->back()->with('success', 'Himpunan Fuzzy created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(HimpunanFuzzy $himpunanFuzzy)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(HimpunanFuzzy $himpunanFuzzy)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, HimpunanFuzzy $himpunanFuzzy)
     {
-        //
+        try {
+            $request->validate([
+                'nama_himpunan' => 'required|in:rendah,sedang,tinggi',
+                'kurva' => 'required|in:naik,turun,segitiga,trapesium',
+                'a' => 'required|numeric',
+                'b' => 'required|numeric',
+                'c' => 'nullable|numeric',
+                'd' => 'nullable|numeric',
+                'kriteria_id' => 'required|exists:kriterias,id',
+            ]);
+
+            HimpunanFuzzy::update($request->all());
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return redirect()->back()->withErrors($e->errors())->withInput(); 
+        }
+        return redirect()->back()->with('success', 'Himpunan Fuzzy updated successfully.');
     }
 
     /**
@@ -56,6 +70,11 @@ class HimpunanFuzzyController extends Controller
      */
     public function destroy(HimpunanFuzzy $himpunanFuzzy)
     {
-        //
+        try {
+            $himpunanFuzzy->delete();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Failed to delete Himpunan Fuzzy: ' . $e->getMessage());
+        }
+        return redirect()->back()->with('success', 'Himpunan Fuzzy deleted successfully.'); 
     }
 }

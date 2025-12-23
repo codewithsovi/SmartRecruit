@@ -12,7 +12,17 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $users = \App\Models\User::count();
+        $kriterias = \App\Models\Kriteria::count();
+        $kandidats = \App\Models\Kandidat::count();
+        $jabatans = \App\Models\Jabatan::count();
+        $data = [
+            'users' => $users,
+            'kriterias' => $kriterias,
+            'kandidats' => $kandidats,
+            'jabatans' => $jabatans,    
+        ];
+        return view('dashboard', $data);
     }
 
     /**

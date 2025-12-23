@@ -22,8 +22,12 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="text-dark">Nama Himpunan</label>
-                        <input type="text" name="nama_himpunan" class="form-control"
-                            placeholder="Masukkan nama himpunan" required>
+                         <select name="nama_himpunan" id="nama_himpunan" class="form-control" required>
+                            <option value="" disabled selected>Pilih nama himpunan</option>
+                            <option value="rendah">Rendah</option>
+                            <option value="sedang">Sedang</option>
+                            <option value="tinggi">Tinggi</option>
+                        </select>
 
                         <label class="text-dark">Kurva</label>
                         <select name="kurva" id="kurva" class="form-control" required>
