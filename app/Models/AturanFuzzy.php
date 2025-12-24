@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\AturanDetail;
 use Illuminate\Database\Eloquent\Model;
 
 class AturanFuzzy extends Model

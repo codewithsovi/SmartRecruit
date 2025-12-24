@@ -52,7 +52,7 @@
          </a>
      </li>
      <li class="nav-item">
-         <a class="nav-link" href="tables.html">
+         <a class="nav-link" href="{{ route('admin.aturan.index') }}">
              <i class="fas fa-fw fa-folder"></i>
              <span>Aturan Fuzzy</span>
          </a>
