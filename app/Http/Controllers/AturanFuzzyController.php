@@ -7,6 +7,7 @@ use App\Models\Kriteria;
 use App\Models\HimpunanFuzzy;
 use App\Models\AturanDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AturanFuzzyController extends Controller
 {
@@ -71,4 +72,16 @@ class AturanFuzzyController extends Controller
         $aturanFuzzy->delete();
         return redirect()->back()->with('success', 'Aturan fuzzy berhasil dihapus');
     }
+
+
+    
+    public function resetAll()
+    {
+            DB::transaction(function () {
+            DB::table('aturan_details')->delete();
+            DB::table('aturan_fuzzies')->delete();
+        });
+
+        return redirect()->back()->with('success', 'Semua aturan fuzzy telah direset');
+    }   
 }
