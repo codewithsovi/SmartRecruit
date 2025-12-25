@@ -31,19 +31,20 @@
                             @foreach ($aturans as $index => $aturan)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-
                                     <td>
-                                        IF
-                                        @foreach ($aturan->details as $detail)
-                                            ({{ $detail->kriteria->nama_kriteria }} = {{ $detail->himpunan->nama_himpunan }})
-                                            @if (!$loop->last)
-                                                AND
+                                            @if ($aturan->details->isNotEmpty())
+                                                IF
+                                                @foreach ($aturan->details as $detail)
+                                                    {{ $detail->kriteria->nama_kriteria }} = {{ $detail->himpunanFuzzy->nama_himpunan }}
+                                                    @if (!$loop->last)
+                                                        AND
+                                                    @endif
+                                                @endforeach
+                                            @else
+                                                <em>Belum ada kondisi</em>
                                             @endif
-                                        @endforeach
-                                    </td>
-
+                                        </td>
                                     <td>{{ $aturan->nilai }}</td>
-
                                     <td>
                                         edit / delete
                                     </td>

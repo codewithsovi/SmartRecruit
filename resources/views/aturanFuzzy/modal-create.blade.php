@@ -7,7 +7,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
 
-            <form action="" method="POST">
+            <form action="{{ route('admin.aturan.store') }}" method="POST">
                 @csrf
 
                 <div class="modal-header bg-primary">
@@ -42,6 +42,11 @@
                             </select>
                         </div>
                     @endforeach
+
+                    <div class="mt-2">
+                            <label class="text-dark">Nilai</label>
+                            <input type="number" name="nilai" class="form-control">
+                        </div>
                 </div>
 
                 <div class="modal-footer">

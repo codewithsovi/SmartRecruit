@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Arsha Bootstrap Template</title>
+  <title>Landing Page</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -57,7 +57,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="#about">Login</a>
+      <a class="btn-getstarted" href="{{ route('login') }}">Login</a>
     </div>
   </header>
 

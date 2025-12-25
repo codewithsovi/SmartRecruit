@@ -8,10 +8,11 @@ use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HimpunanFuzzyController;
 use App\Http\Controllers\AturanFuzzyController;
+use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('landing-page');
-});
+Route::get('/', function () { return view('landing-page');})->name('landing');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+
 
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');

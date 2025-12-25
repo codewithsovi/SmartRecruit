@@ -11,11 +11,12 @@ use Illuminate\Http\Request;
 class AturanFuzzyController extends Controller
 {
     public function index()
-    {
-        $kriterias = Kriteria::with('himpunanFuzzies')->get();
-        $aturans = AturanFuzzy::all();
-        return view('aturanFuzzy.aturan', compact('aturans', 'kriterias'));
-    }
+{
+    $kriterias = Kriteria::with('himpunanFuzzies')->get();  
+    $aturans = AturanFuzzy::with('details.kriteria', 'details.himpunanFuzzy')->get();
+
+    return view('aturanFuzzy.aturan', compact('aturans', 'kriterias'));
+}
 
    public function store(Request $request)
 {
