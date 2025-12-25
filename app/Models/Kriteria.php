@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Alternatif;
+use App\Models\AturanDetail;
+use App\Models\HimpunanFuzzy;
 use Illuminate\Database\Eloquent\Model;
 
 class Kriteria extends Model
@@ -15,9 +18,9 @@ class Kriteria extends Model
         // Add other fillable fields as necessary
     ];
 
-    public function himpunanFuzzy()
+    public function himpunanFuzzies()
     {
-        return $this->hasMany(HimpunanFuzzy::class);
+        return $this->hasMany(HimpunanFuzzy::class, 'kriteria_id');
     }
 
     public function alternatif()

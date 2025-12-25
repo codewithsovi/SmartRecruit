@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Kandidat;
+use App\Models\Kriteria;
+use App\Models\Hasil;
 use Illuminate\Database\Eloquent\Model;
 
 class Alternatif extends Model

@@ -7,9 +7,10 @@ use App\Http\Controllers\KandidatController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HimpunanFuzzyController;
+use App\Http\Controllers\AturanFuzzyController;
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('landing-page');
 });
 
 Route::prefix('admin')->group(function () {
@@ -53,5 +54,16 @@ Route::prefix('admin')->group(function () {
             Route::post('/store', 'store')->name('store.byKriteria');
             Route::put('/update/{himpunanFuzzy}', 'update')->name('update.byKriteria');
             Route::delete('/delete/{himpunanFuzzy}', 'destroy')->name('delete.byKriteria');
+        });
+        
+
+    Route::prefix('aturan')
+        ->as('admin.aturan.')
+        ->controller(AturanFuzzyController::class)
+        ->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/store', 'store')->name('store');
+            Route::put('/update/{aturanFuzzy}', 'update')->name('update');
+            Route::delete('/delete/{aturanFuzzy}', 'destroy')->name('delete');
         });
 });

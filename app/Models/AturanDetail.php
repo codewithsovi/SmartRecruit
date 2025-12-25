@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\AturanFuzzy;
+use App\Models\Kriteria;
+use App\Models\HimpunanFuzzy;
 use Illuminate\Database\Eloquent\Model;
 
 class AturanDetail extends Model

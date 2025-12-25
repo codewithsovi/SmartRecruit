@@ -3,33 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Models\AturanFuzzy;
+use App\Models\Kriteria;
+use App\Models\HimpunanFuzzy;
+use App\Models\AturanDetail;
 use Illuminate\Http\Request;
 
 class AturanFuzzyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $kriterias = Kriteria::with('himpunanFuzzies')->get();
+        $aturans = AturanFuzzy::all();
+        return view('aturanFuzzy.aturan', compact('aturans', 'kriterias'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+   public function store(Request $request)
+{
+    // 1. simpan aturan utama
+    $aturan = AturanFuzzy::create([
+        'nama_aturan' => 'R' . (AturanFuzzy::count() + 1),
+        'nilai' => $request->nilai
+    ]);
+
+    // 2. simpan detail aturan
+    foreach ($request->himpunan as $kriteria_id => $himpunan_id) {
+        AturanDetail::create([
+            'aturan_fuzzy_id' => $aturan->id,
+            'kriteria_id' => $kriteria_id,
+            'himpunan_fuzzy_id' => $himpunan_id
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    return redirect()->back()->with('success', 'Aturan fuzzy berhasil ditambahkan');
+}
+
 
     /**
      * Display the specified resource.

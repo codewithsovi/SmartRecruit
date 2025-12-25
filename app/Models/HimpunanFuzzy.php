@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\AturanDetail;
+use App\Models\kriteria;
 use Illuminate\Database\Eloquent\Model;
 
 class HimpunanFuzzy extends Model
@@ -21,11 +23,12 @@ class HimpunanFuzzy extends Model
 
     public function kriteria()
     {
-        return $this->belongsTo(Kriteria::class);
+        return $this->belongsTo(Kriteria::class, 'kriteria_id');
     }
 
     public function aturanDetail()
     {
         return $this->hasMany(AturanDetail::class);
     }
+
 }
