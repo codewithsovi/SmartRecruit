@@ -10,26 +10,22 @@ use Illuminate\Database\Eloquent\Model;
 class AturanDetail extends Model
 {
     protected $table = 'aturan_details';
-
-    protected $fillable = [
-        'aturan_id',
-        'kriteria_id',
-        'himpunan_id',
-        // Add other fillable fields as necessary
-    ];
+    protected $guarded = [];
 
     public function aturan()
     {
-        return $Relasi = $this->belongsTo(AturanFuzzy::class, 'aturan_id');
+        return $this->belongsTo(AturanFuzzy::class, 'aturan_fuzzy_id');
     }
 
     public function kriteria()
     {
-        return $this->belongsTo(Kriteria::class);
+        return $this->belongsTo(Kriteria::class, 'kriteria_id');
     }
 
-    public function himpunanFuzzy()
+    // 🔥 INI KUNCI UTAMA
+    public function himpunan()
     {
-        return $this->belongsTo(HimpunanFuzzy::class);
+        return $this->belongsTo(HimpunanFuzzy::class, 'himpunan_fuzzy_id');
     }
 }
+
