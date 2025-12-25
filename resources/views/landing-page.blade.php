@@ -147,18 +147,17 @@
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              We are a professional recruitment and selection team committed to connecting the right talent with the right opportunities. Our process is designed to ensure efficiency, transparency, and fairness in every stage of hiring.
             </p>
             <ul>
-              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>We identify and attract qualified candidates based on skills and potential..</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>We conduct structured and objective selection processes.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>We support organizations in building strong and sustainable teams.</span></li>
             </ul>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+            <p>Our recruitment approach focuses on understanding both company needs and candidate aspirations. Through careful assessment and evaluation, we ensure that every hiring decision contributes to long-term organizational success. </p>
           </div>
 
         </div>
@@ -170,58 +169,73 @@
     <!-- Why Us Section -->
     <section id="why-us" class="section why-us light-background" data-builder="section">
 
-      <div class="container-fluid">
+  <div class="container-fluid">
 
-        <div class="row gy-4">
+    <div class="row gy-4">
 
-          <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
+      <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
 
-            <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
-              <h3><span>Eum ipsam laborum deleniti </span><strong>velit pariatur architecto aut nihil</strong></h3>
+        <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
+          <h3>
+            <span>Why Choose Smart Recruit</span>
+            <strong>for Employee Recruitment and Selection</strong>
+          </h3>
+          <p>
+            Smart Recruit helps organizations streamline the hiring process by providing
+            fast, accurate, and objective recruitment and selection methods.
+            Our system is designed to support better decision-making in human resource management.
+          </p>
+        </div>
+
+        <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="faq-item faq-active">
+            <h3><span>01</span> How does Smart Recruit improve recruitment efficiency?</h3>
+            <div class="faq-content">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                We automate candidate screening and evaluation processes,
+                allowing companies to reduce hiring time while maintaining selection quality.
               </p>
             </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
 
-            <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
-
-              <div class="faq-item faq-active">
-
-                <h3><span>01</span> Non consectetur a erat nam at lectus urna duis?</h3>
-                <div class="faq-content">
-                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3><span>02</span> Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3><span>03</span> Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
+          <div class="faq-item">
+            <h3><span>02</span> How is candidate selection kept objective and fair?</h3>
+            <div class="faq-content">
+              <p>
+                Candidates are assessed using structured criteria and data-driven evaluations,
+                ensuring transparency and minimizing bias in the selection process.
+              </p>
             </div>
-
+            <i class="faq-toggle bi bi-chevron-right"></i>
           </div>
 
-          <div class="col-lg-5 order-1 order-lg-2 why-us-img">
-            <img src="{{asset('Arsha')}}/assets/img/why-us.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+          <div class="faq-item">
+            <h3><span>03</span> Who can benefit from using Smart Recruit?</h3>
+            <div class="faq-content">
+              <p>
+                Smart Recruit is suitable for companies, organizations, and institutions
+                that require fast, reliable, and accurate employee recruitment solutions.
+              </p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
           </div>
+
         </div>
 
       </div>
 
-    </section><!-- /Why Us Section -->
+      <div class="col-lg-5 order-1 order-lg-2 why-us-img">
+        <img src="{{asset('Arsha')}}/assets/img/why-us.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- /Why Us Section -->
 
     <!-- Services Section -->
     <section id="services" class="services section light-background">
@@ -229,59 +243,81 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Efficient recruitment and selection services to support your hiring needs</p>
       </div><!-- End Section Title -->
 
-      <div class="container">
+     <div class="container">
 
-        <div class="row gy-4">
+  <div class="row gy-4">
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-activity icon"></i></div>
-              <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-              <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-              <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-              <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div><!-- End Service Item -->
-
+    <!-- Service 1 -->
+    <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+      <div class="service-item position-relative">
+        <div class="icon">
+          <i class="bi bi-briefcase icon"></i>
         </div>
-
+        <h4><a href="" class="stretched-link">Job Vacancy</a></h4>
+        <p>
+          Manage and publish job vacancies based on company recruitment needs.
+        </p>
       </div>
+    </div><!-- End Service Item -->
 
-    </section><!-- /Services Section -->
+    <!-- Service 2 -->
+    <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+      <div class="service-item position-relative">
+        <div class="icon">
+          <i class="bi bi-file-earmark-text icon"></i>
+        </div>
+        <h4><a href="" class="stretched-link">CV Screening</a></h4>
+        <p>
+          Review and screen candidate resumes to identify the most qualified applicants.
+        </p>
+      </div>
+    </div><!-- End Service Item -->
+
+    <!-- Service 3 -->
+    <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+      <div class="service-item position-relative">
+        <div class="icon">
+          <i class="bi bi-calendar-check icon"></i>
+        </div>
+        <h4><a href="" class="stretched-link">Interview & Assessment</a></h4>
+        <p>
+          Conduct interviews and competency assessments according to company standards.
+        </p>
+      </div>
+    </div><!-- End Service Item -->
+
+    <!-- Service 4 -->
+    <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+      <div class="service-item position-relative">
+        <div class="icon">
+          <i class="bi bi-person-check icon"></i>
+        </div>
+        <h4><a href="" class="stretched-link">Hiring & Placement</a></h4>
+        <p>
+          Select the best candidates and place them in suitable job positions.
+        </p>
+      </div>
+    </div><!-- End Service Item -->
+
+  </div>
+
+</div>
+<!-- /Services Section -->
 
     <!-- Work Process Section -->
     <section id="work-process" class="work-process section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Work Process</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+          <h2>Recruitment Process</h2>
+      <p>
+    Our recruitment process ensures a structured, transparent, and effective selection of qualified candidates.
+      </p>
+      </div>
+<!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -290,26 +326,29 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="steps-item">
               <div class="steps-image">
-                <img src="{{asset('Arsha')}}/assets/img/steps/steps-1.webp" alt="Step 1" class="img-fluid" loading="lazy">
+                <img src="{{asset('Arsha')}}/assets/img/steps/no2.webp" alt="Step 1" class="img-fluid" loading="lazy">
               </div>
               <div class="steps-content">
                 <div class="steps-number">01</div>
-                <h3>Research &amp; Analysis</h3>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.</p>
+                <h3>Application &amp; Screening</h3>
+                <p>
+                  We collect job applications and screen candidate resumes to ensure they meet the required qualifications.
+                </p>
                 <div class="steps-features">
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
-                    <span>Market Research</span>
+                    <span>Application Review</span>
                   </div>
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
-                    <span>Data Analysis</span>
+                    <span>CV Screening</span>
                   </div>
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
-                    <span>User Feedback</span>
+                    <span>Initial Qualification Check</span>
                   </div>
                 </div>
+
               </div>
             </div><!-- End Steps Item -->
           </div>
@@ -317,26 +356,29 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
             <div class="steps-item">
               <div class="steps-image">
-                <img src="{{asset('Arsha')}}/assets/img/steps/steps-2.webp" alt="Step 2" class="img-fluid" loading="lazy">
+                <img src="{{asset('Arsha')}}/assets/img/steps/no1.webp" alt="Step 2" class="img-fluid" loading="lazy">
               </div>
               <div class="steps-content">
-                <div class="steps-number">02</div>
-                <h3>Design &amp; Planning</h3>
-                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
-                <div class="steps-features">
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Wireframing</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>UI/UX Design</span>
-                  </div>
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle"></i>
-                    <span>Prototyping</span>
-                  </div>
+              <div class="steps-number">02</div>
+              <h3>Interview &amp; Assessment</h3>
+              <p>
+                Shortlisted candidates are evaluated through interviews and assessments to measure skills and competencies.
+              </p>
+              <div class="steps-features">
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span>HR Interview</span>
                 </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span>Technical Assessment</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span>Competency Evaluation</span>
+                </div>
+              </div>
+
               </div>
             </div><!-- End Steps Item -->
           </div>
@@ -344,26 +386,29 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
             <div class="steps-item">
               <div class="steps-image">
-                <img src="{{asset('Arsha')}}/assets/img/steps/steps-3.webp" alt="Step 3" class="img-fluid" loading="lazy">
+                <img src="{{asset('Arsha')}}/assets/img/steps/no3.webp" alt="Step 3" class="img-fluid" loading="lazy">
               </div>
               <div class="steps-content">
                 <div class="steps-number">03</div>
-                <h3>Development &amp; Launch</h3>
-                <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil.</p>
+                <h3>Hiring &amp; Placement</h3>
+                <p>
+                  The best candidates are selected, hired, and placed in positions that match their qualifications.
+                </p>
                 <div class="steps-features">
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
-                    <span>Development</span>
+                    <span>Final Selection</span>
                   </div>
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
-                    <span>Testing</span>
+                    <span>Job Offer</span>  
                   </div>
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
-                    <span>Deployment</span>
+                    <span>Employee Placement</span>
                   </div>
                 </div>
+
               </div>
             </div><!-- End Steps Item -->
           </div>
@@ -383,11 +428,11 @@
 
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-xl-9 text-center text-xl-start">
-            <h3>Call To Action</h3>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3>Start Your Career With Us</h3>
+            <p>Join our recruitment process and take the next step in your professional career. We are looking for talented, motivated, and qualified individuals to grow with our organization.</p>
           </div>
           <div class="col-xl-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
+            <a class="cta-btn align-middle" href="#">Apply Now</a>
           </div>
         </div>
 
@@ -398,161 +443,210 @@
     <!-- Team Section -->
     <section id="team" class="team section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Our Team</h2>
+    <p>The team behind the Smart Recruit system</p>
+  </div><!-- End Section Title -->
 
-      <div class="container">
+  <div class="container">
 
-        <div class="row gy-4">
+    <div class="row gy-4">
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="{{asset('Arsha')}}/assets/img/person/person-m-7.webp" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
+      <!-- Sovi -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="team-member d-flex align-items-start">
+          <div class="pic">
+            <img src="{{asset('Arsha')}}/assets/img/person/no.1.webp" class="img-fluid" alt="">
+          </div>
+          <div class="member-info">
+            <h4>Sovi</h4>
+            <span>Backend Developer</span>
+            <p>
+              Responsible for server-side development, database management,
+              and system integration to ensure optimal performance.
+            </p>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter-x"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
             </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="{{asset('Arsha')}}/assets/img/person/person-f-8.webp" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-                <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="{{asset('Arsha')}}/assets/img/person/person-m-6.webp" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="{{asset('Arsha')}}/assets/img/person/person-f-4.webp" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
+          </div>
         </div>
-
       </div>
 
-    </section><!-- /Team Section -->
+      <!-- Ikmal -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="team-member d-flex align-items-start">
+          <div class="pic">
+            <img src="{{asset('Arsha')}}/assets/img/person/no2.webp" class="img-fluid" alt="">
+          </div>
+          <div class="member-info">
+            <h4>Ikmal</h4>
+            <span>Frontend Developer</span>
+            <p>
+              Develops user interfaces and ensures a responsive,
+              user-friendly experience across all devices.
+            </p>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter-x"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dimas -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="team-member d-flex align-items-start">
+          <div class="pic">
+            <img src="{{asset('Arsha')}}/assets/img/person/no3.webp" class="img-fluid" alt="">
+          </div>
+          <div class="member-info">
+            <h4>Dimas</h4>
+            <span>Data Analyst</span>
+            <p>
+              Analyzes recruitment data to generate insights
+              that support accurate and effective decision-making.
+            </p>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter-x"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wahyu -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="team-member d-flex align-items-start">
+          <div class="pic">
+            <img src="{{asset('Arsha')}}/assets/img/person/no.4.webp" class="img-fluid" alt="">
+          </div>
+          <div class="member-info">
+            <h4>Wahyu</h4>
+            <span>Data Analyst</span>
+            <p>
+              Processes and interprets data to support recruitment
+              evaluation and performance measurement.
+            </p>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter-x"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- /Team Section -->
 
     <!-- Faq 2 Section -->
-    <section id="faq-2" class="faq-2 section light-background">
+  <section id="faq-2" class="faq-2 section light-background">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Frequently Asked Questions</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-      </div><!-- End Section Title -->
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <p>
+      Here are some common questions related to our recruitment and selection process,
+      application requirements, and hiring procedures.
+    </p>
+  </div><!-- End Section Title -->
 
-      <div class="container">
+  <div class="container">
 
-        <div class="row justify-content-center">
+    <div class="row justify-content-center">
 
-          <div class="col-lg-10">
+      <div class="col-lg-10">
 
-            <div class="faq-container">
+        <div class="faq-container">
 
-              <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
-                <div class="faq-content">
-                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h3>
-                <div class="faq-content">
-                  <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
+          <!-- FAQ Item 1 -->
+          <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
+            <i class="faq-icon bi bi-question-circle"></i>
+            <h3>How can I apply for a job?</h3>
+            <div class="faq-content">
+              <p>
+                You can apply by submitting your application and resume through our official
+                recruitment website or job portal.
+              </p>
             </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item -->
 
-          </div>
+          <!-- FAQ Item 2 -->
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+            <i class="faq-icon bi bi-question-circle"></i>
+            <h3>What documents are required to apply?</h3>
+            <div class="faq-content">
+              <p>
+                Applicants are required to submit a CV or resume. Additional documents such as
+                certificates or portfolios may be requested depending on the position.
+              </p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item -->
+
+          <!-- FAQ Item 3 -->
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+            <i class="faq-icon bi bi-question-circle"></i>
+            <h3>What are the stages of the recruitment process?</h3>
+            <div class="faq-content">
+              <p>
+                The recruitment process generally includes application screening, interviews,
+                assessments, and final selection.
+              </p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item -->
+
+          <!-- FAQ Item 4 -->
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+            <i class="faq-icon bi bi-question-circle"></i>
+            <h3>Will I be informed about my application status?</h3>
+            <div class="faq-content">
+              <p>
+                Yes, shortlisted candidates will be contacted for the next stage of the recruitment
+                process. Unfortunately, we may not be able to respond to all applicants.
+              </p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item -->
+
+          <!-- FAQ Item 5 -->
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+            <i class="faq-icon bi bi-question-circle"></i>
+            <h3>How long does the hiring process usually take?</h3>
+            <div class="faq-content">
+              <p>
+                The duration of the hiring process may vary depending on the position and number
+                of applicants, but we strive to complete it as efficiently as possible.
+              </p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item -->
 
         </div>
 
       </div>
 
-    </section><!-- /Faq 2 Section -->
+    </div>
+
+  </div>
+
+</section><!-- End FAQ-2 Section -->
+<!-- /Faq 2 Section -->
     
   </main>
 
@@ -563,7 +657,9 @@
         <div class="row justify-content-center text-center">
           <div class="col-lg-6">
             <h4>Join Our Newsletter</h4>
-            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+              <p>
+                Subscribe to receive the latest job openings, recruitment updates, and career opportunities.
+              </p>
             <form action="forms/newsletter.php" method="post" class="php-email-form">
               <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
               <div class="loading">Loading</div>
@@ -579,13 +675,13 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">Arsha</span>
+            <span class="sitename">SR</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p>Gotham Street</p>
+            <p>Gotham City</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+62 8568777012</span></p>
+            <p><strong>Email:</strong> <span>SmartRecuirt@gmail.com</span></p>
           </div>
         </div>
 
@@ -610,9 +706,8 @@
         </div>
 
         <div class="col-lg-4 col-md-12">
-          <h4>Follow Us</h4>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-          <div class="social-links d-flex">
+        <h4>Follow Us</h4>
+        <p>Follow us on social media to stay updated with new job vacancies and recruitment announcements.</p>
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
             <a href=""><i class="bi bi-instagram"></i></a>
