@@ -31,7 +31,6 @@
                             @foreach ($aturans as $index => $aturan)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-
                                     <td>
                                         IF
                                         @foreach ($aturan->details as $detail)
@@ -41,11 +40,24 @@
                                             @endif
                                         @endforeach
                                     </td>
-
                                     <td>{{ $aturan->nilai }}</td>
 
-                                    <td>
-                                        edit / delete
+                                    <td class="d-flex align-items-center gap-2">
+                                            <div class="d-flex">
+                                                 @include('aturanFuzzy.modal-edit')
+                                            </div>
+
+                                            <form action="{{ route('admin.aturan.delete', $aturan->id) }}" method="POST"
+                                                onsubmit="return confirm('Yakin ingin menghapus aturan ini?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-icon-split me-2">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

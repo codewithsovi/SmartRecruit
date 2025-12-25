@@ -15,8 +15,9 @@ class AturanFuzzy extends Model
         // Add other fillable fields as necessary
     ];
 
-    public function detail()
-    {
-        return $this->hasMany(AturanDetail::class, 'aturan_id');
-    }
+    public function details()
+{
+    return $this->hasMany(AturanDetail::class, 'aturan_fuzzy_id');
+}
+
 }
