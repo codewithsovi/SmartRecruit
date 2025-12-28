@@ -42,8 +42,6 @@ class AturanFuzzyController extends Controller
     DB::table('aturan_details')->delete();
     DB::table('aturan_fuzzies')->delete();
 
-
-
     $kombinasi = [];
 
 foreach ($kriterias as $kriteria) {
