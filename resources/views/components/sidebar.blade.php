@@ -69,12 +69,6 @@
              <span>Perhitungan</span>
          </a>
      </li>
-     <li class="nav-item">
-         <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-folder"></i>
-             <span>Hasil Akhir</span>
-         </a>
-     </li>
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
 

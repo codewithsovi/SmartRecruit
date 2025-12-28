@@ -18,10 +18,6 @@ class HimpunanFuzzyController extends Controller
         return view('himpunan.himpunan', compact('himpunans', 'kriteria_id', 'kriteria'));
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         try {

@@ -64,7 +64,6 @@ Route::prefix('admin')->group(function () {
         ->group(function () {
             Route::get('/', 'index')->name('index');
             Route::post('/generate', 'generate')->name('generate');
-            Route::delete('/reset-all', 'resetAll')->name('resetAll');
         });
 
     Route::prefix('alternatif')
@@ -85,4 +84,5 @@ Route::prefix('admin')->group(function () {
             Route::get('/', 'jabatan')->name('jabatan');
             Route::get('/perhitungan/{jabatan_id}', 'index')->name('index.byJabatan');
         });
+
 });
