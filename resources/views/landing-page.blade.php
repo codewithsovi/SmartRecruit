@@ -126,7 +126,7 @@
               }
             }
           </script>
-        
+
         </div>
 
       </div>
@@ -401,7 +401,7 @@
                   </div>
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
-                    <span>Job Offer</span>  
+                    <span>Job Offer</span>
                   </div>
                   <div class="feature-item">
                     <i class="bi bi-check-circle"></i>
@@ -454,10 +454,10 @@
     <div class="row gy-4">
 
       <!-- Sovi -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
         <div class="team-member d-flex align-items-start">
           <div class="pic">
-            <img src="{{asset('Arsha')}}/assets/img/person/no.1.webp" class="img-fluid" alt="">
+            <img src="{{asset('Arsha')}}/assets/img/person/sovi.jpeg" class="img-fluid" alt="">
           </div>
           <div class="member-info">
             <h4>Sovi</h4>
@@ -647,7 +647,7 @@
 
 </section><!-- End FAQ-2 Section -->
 <!-- /Faq 2 Section -->
-    
+
   </main>
 
   <footer id="footer" class="footer">

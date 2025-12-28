@@ -64,7 +64,7 @@
          </a>
      </li>
      <li class="nav-item">
-         <a class="nav-link" href="tables.html">
+         <a class="nav-link" href="{{ route('admin.perhitungan.jabatan') }}">
              <i class="fas fa-fw fa-chart-area"></i>
              <span>Perhitungan</span>
          </a>
