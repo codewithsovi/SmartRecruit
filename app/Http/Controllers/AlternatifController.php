@@ -13,7 +13,7 @@ class AlternatifController extends Controller
 {
     public function jabatan()
     {
-        $jabatans = Jabatan::all();
+        $jabatans = Jabatan::whereHas('kandidat')->get();
         return view('PenilaianAlternatif.jabatan', compact('jabatans'));
     }
 
