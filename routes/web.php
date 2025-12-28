@@ -63,10 +63,7 @@ Route::prefix('admin')->group(function () {
         ->controller(AturanFuzzyController::class)
         ->group(function () {
             Route::get('/', 'index')->name('index');
-            Route::post('/store', 'store')->name('store');
             Route::post('/generate', 'generate')->name('generate');
-            Route::put('/update/{aturanFuzzy}', 'update')->name('update');
-            Route::delete('/delete/{aturanFuzzy}', 'destroy')->name('delete');
             Route::delete('/reset-all', 'resetAll')->name('resetAll');
         });
 
