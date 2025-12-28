@@ -10,7 +10,6 @@ use App\Http\Controllers\HimpunanFuzzyController;
 use App\Http\Controllers\AturanFuzzyController;
 use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\PerhitunganController;
-use App\Http\Controllers\HasilController;
 
 Route::get('/', function () {
     return view('landing-page');

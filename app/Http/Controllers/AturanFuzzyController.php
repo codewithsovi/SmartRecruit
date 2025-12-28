@@ -16,7 +16,6 @@ class AturanFuzzyController extends Controller
         $kriterias = Kriteria::with('himpunanFuzzies')
             ->has('himpunanFuzzies')
             ->get();
-
             $aturans = AturanFuzzy::with('details.kriteria', 'details.himpunan')->get();
 
         // $aturans = AturanFuzzy::all();
@@ -39,7 +38,6 @@ class AturanFuzzyController extends Controller
         'sedang' => 1,
         'tinggi' => 2
     ];
-
     // hapus aturan lama (opsional)
     DB::table('aturan_details')->delete();
     DB::table('aturan_fuzzies')->delete();

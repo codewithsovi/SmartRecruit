@@ -73,9 +73,6 @@ public function update(Request $request, $kandidat_id)
 
     return redirect()->back()->with('success', 'Penilaian berhasil diperbarui');
 }
-
-
-
    
 public function destroy($kandidat_id)
 {
