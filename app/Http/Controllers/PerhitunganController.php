@@ -2,63 +2,87 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jabatan;
+use App\Models\Kriteria;
 use Illuminate\Http\Request;
 
 class PerhitunganController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function jabatan()
     {
-        //
+       $jabatans = Jabatan::whereHas('kandidat')->get();
+        return view('perhitungan.jabatan', compact('jabatans'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+
+    public function index($jabatan_id)
     {
-        //
+        $jabatan = Jabatan::findOrFail($jabatan_id);
+        $kriterias = Kriteria::whereHas('alternatif')->get();
+        $kandidats = $jabatan->kandidat()
+            ->whereHas('alternatif', function ($q) { $q->whereNotNull('bobot');})
+            ->with('alternatif')
+            ->get();
+
+        $derajat = [];
+
+            foreach ($kandidats as $kandidat) {
+                foreach ($kriterias as $kriteria) {
+
+                    // ambil bobot kandidat untuk kriteria ini
+                    $alternatif = $kandidat->alternatif
+                        ->where('kriteria_id', $kriteria->id)
+                        ->first();
+
+                    if (!$alternatif) continue;
+
+                    $x = $alternatif->bobot;
+
+                    foreach ($kriteria->himpunanFuzzies as $himpunan) {
+                        $derajat[$kandidat->id][$kriteria->id][$himpunan->id] =
+                            $this->hitungDerajat($x, $himpunan);
+                    }
+                }
+            }
+
+        return view('perhitungan.perhitungan', compact('kriterias', 'jabatan', 'kandidats', 'derajat'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    private function hitungDerajat($x, $himpunan)
     {
-        //
-    }
+        $a = $himpunan->a;
+        $b = $himpunan->b;
+        $c = $himpunan->c;
+        $d = $himpunan->d;
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        switch ($himpunan->kurva) {
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+            case 'naik':
+                if ($x <= $a) return 0;
+                if ($x >= $b) return 1;
+                return ($x - $a) / ($b - $a);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            case 'turun':
+                if ($x <= $a) return 1;
+                if ($x >= $b) return 0;
+                return ($b - $x) / ($b - $a);
+
+            case 'segitiga':
+                if ($x <= $a || $x >= $c) return 0;
+                if ($x == $b) return 1;
+                if ($x < $b) return ($x - $a) / ($b - $a);
+                return ($c - $x) / ($c - $b);
+
+            case 'trapesium':
+                if ($x <= $a || $x >= $d) return 0;
+                if ($x >= $b && $x <= $c) return 1;
+                if ($x < $b) return ($x - $a) / ($b - $a);
+                return ($d - $x) / ($d - $c);
+
+            default:
+                return 0;
+        }
     }
 }

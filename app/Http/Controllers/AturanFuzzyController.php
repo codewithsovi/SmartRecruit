@@ -16,72 +16,85 @@ class AturanFuzzyController extends Controller
         $kriterias = Kriteria::with('himpunanFuzzies')
             ->has('himpunanFuzzies')
             ->get();
-        $aturans = AturanFuzzy::all();
-        return view('aturanFuzzy.aturan', compact('aturans', 'kriterias'));
+            $aturans = AturanFuzzy::with('details.kriteria', 'details.himpunan')->get();
+
+        // $aturans = AturanFuzzy::all();
+
+        $jumlahKriteria = Kriteria::count();
+        $jumlahAturan = pow(3, $jumlahKriteria);
+
+        return view('aturanFuzzy.aturan', compact('aturans', 'kriterias', 'jumlahKriteria', 'jumlahAturan'));
     }
 
-   public function store(Request $request)
+   
+    public function generate()
 {
-    // 1. simpan aturan utama
-    $aturan = AturanFuzzy::create([
-        'nama_aturan' => 'R' . (AturanFuzzy::count() + 1),
-        'nilai' => $request->nilai
-    ]);
+    $kriterias = Kriteria::all();
+    $himpunan = HimpunanFuzzy::all(); // rendah, sedang, tinggi
 
-    // 2. simpan detail aturan
-    foreach ($request->himpunan as $kriteria_id => $himpunan_id) {
-        AturanDetail::create([
-            'aturan_fuzzy_id' => $aturan->id,
-            'kriteria_id' => $kriteria_id,
-            'himpunan_fuzzy_id' => $himpunan_id
-        ]);
+    // mapping konstanta Sugeno
+    $map = [
+        'rendah' => 0,
+        'sedang' => 1,
+        'tinggi' => 2
+    ];
+    // hapus aturan lama (opsional)
+    DB::table('aturan_details')->delete();
+    DB::table('aturan_fuzzies')->delete();
+
+
+
+    $kombinasi = [];
+
+foreach ($kriterias as $kriteria) {
+
+    $himpunanPerKriteria = HimpunanFuzzy::where('kriteria_id', $kriteria->id)->get();
+
+    if (count($kombinasi) === 0) {
+        foreach ($himpunanPerKriteria as $h) {
+            $kombinasi[] = [
+                $kriteria->id => $h->id
+            ];
+        }
+        continue;
     }
 
-    return redirect()->back()->with('success', 'Aturan fuzzy berhasil ditambahkan');
+    $temp = [];
+    foreach ($kombinasi as $komb) {
+        foreach ($himpunanPerKriteria as $h) {
+            $temp[] = $komb + [
+                $kriteria->id => $h->id
+            ];
+        }
+    }
+
+    $kombinasi = $temp;
 }
+    foreach ($kombinasi as $index => $aturan) {
 
-    public function update(Request $request, AturanFuzzy $aturanFuzzy)
-    {
-        // Update nilai aturan fuzzy
-        $aturanFuzzy->update([
-            'nama_aturan' => 'R' . (AturanFuzzy::count() + 1),
-            'nilai' => $request->nilai
-        ]);
+        $total = 0;
 
-        // Update detail aturan fuzzy
-        foreach ($request->himpunan as $kriteria_id => $himpunan_id) {
-            $detail = AturanDetail::where('aturan_fuzzy_id', $aturanFuzzy->id)
-                ->where('kriteria_id', $kriteria_id)
-                ->first();
-
-            if ($detail) {
-                $detail->update([
-                    'himpunan_fuzzy_id' => $himpunan_id
-                ]);
-            }
+        foreach ($aturan as $himpunan_id) {
+            $nama = HimpunanFuzzy::find($himpunan_id)->nama_himpunan;
+            $total += $map[$nama];
         }
 
-        return redirect()->back()->with('success', 'Aturan fuzzy berhasil diperbarui');
+        $nilaiThen = $total >= 3 ? 1 : 0;
+
+        $rule = AturanFuzzy::create([
+            'nama_aturan' => 'R' . ($index + 1),
+            'nilai' => $nilaiThen
+        ]);
+
+        foreach ($aturan as $kriteria_id => $himpunan_id) {
+            AturanDetail::create([
+                'aturan_fuzzy_id' => $rule->id,
+                'kriteria_id' => $kriteria_id,
+                'himpunan_fuzzy_id' => $himpunan_id
+            ]);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(AturanFuzzy $aturanFuzzy)
-    {
-        $aturanFuzzy->delete();
-        return redirect()->back()->with('success', 'Aturan fuzzy berhasil dihapus');
-    }
-
-
-    
-    public function resetAll()
-    {
-            DB::transaction(function () {
-            DB::table('aturan_details')->delete();
-            DB::table('aturan_fuzzies')->delete();
-        });
-
-        return redirect()->back()->with('success', 'Semua aturan fuzzy telah direset');
-    }   
+    return back()->with('success', 'Aturan fuzzy berhasil digenerate otomatis');
+}  
 }
