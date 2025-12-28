@@ -10,6 +10,7 @@ use App\Http\Controllers\HimpunanFuzzyController;
 use App\Http\Controllers\AturanFuzzyController;
 use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\PerhitunganController;
+use App\Http\Controllers\HasilController;
 
 Route::get('/', function () {
     return view('landing-page');
@@ -63,11 +64,7 @@ Route::prefix('admin')->group(function () {
         ->controller(AturanFuzzyController::class)
         ->group(function () {
             Route::get('/', 'index')->name('index');
-            Route::post('/store', 'store')->name('store');
             Route::post('/generate', 'generate')->name('generate');
-            Route::put('/update/{aturanFuzzy}', 'update')->name('update');
-            Route::delete('/delete/{aturanFuzzy}', 'destroy')->name('delete');
-            Route::delete('/reset-all', 'resetAll')->name('resetAll');
         });
 
     Route::prefix('alternatif')
@@ -88,4 +85,5 @@ Route::prefix('admin')->group(function () {
             Route::get('/', 'jabatan')->name('jabatan');
             Route::get('/perhitungan/{jabatan_id}', 'index')->name('index.byJabatan');
         });
+
 });
