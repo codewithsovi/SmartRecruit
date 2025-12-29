@@ -11,7 +11,6 @@ use App\Http\Controllers\AturanFuzzyController;
 use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\PerhitunganController;
 
-
 Route::get('/', function () {
     return view('landing-page');
 });

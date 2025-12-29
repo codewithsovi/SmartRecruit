@@ -62,10 +62,8 @@
                                             text-white">
                                             {{ $aturan->nilai == floor($aturan->nilai) ? number_format($aturan->nilai, 0, '.', '') : number_format($aturan->nilai, 3, '.', '') }}
                                         </span>
-                                    </td>  
-                                                                  
-                                </tr>
-                                
+                                    </td>                                                                  
+                                </tr>                               
                             @endforeach
                         </tbody>
                     </table>
@@ -74,4 +72,3 @@
         </div>
     </div>
 @endsection
-        <!-- Begin Page Content -->

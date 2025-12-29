@@ -37,6 +37,7 @@ class AturanFuzzyController extends Controller
                 'rendah' => 0,
                 'sedang' => 1,
                 'tinggi' => 2
+
             ];
             // hapus aturan lama (opsional)
             DB::table('aturan_details')->delete();
