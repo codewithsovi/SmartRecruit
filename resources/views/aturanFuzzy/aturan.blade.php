@@ -8,10 +8,13 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center gap-2">
                 <div class="py-3 d-flex justify-content-start align-items-center gap-2">
-                    <a href="">Rentang Aturan</a>
+                    @include('aturanFuzzy.modal-rangeAturan')
                 </div>
 
                 <div class="py-3 d-flex justify-content-end align-items-center gap-2">
+
+                    
+
                     <a href="#" class="btn btn-primary btn-icon-split d-flex align-items-center float-right">
                         <form action="{{ route('admin.aturan.generate') }}" method="POST">
                             @csrf
@@ -25,7 +28,6 @@
                     </a>
                 </div>
             </div>
-
 
             <div class="card-body">
                 <div class="table-responsive">
