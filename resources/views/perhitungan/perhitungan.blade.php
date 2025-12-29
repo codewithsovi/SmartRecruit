@@ -156,14 +156,14 @@
 
           <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-strat align-items-center gap-2">
-               <h1 class="h4 mb-2 text-gray-800">Defuzzification dan Perangkingan</h1>
+               <h1 class="h4 mb-2 text-gray-800">Defuzzification</h1>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Rangking</th>
+                                <th>No</th>
                                 <th>Nama Alternatif</th>
                                 <th>Perhitungan Defuzzification</th>
                                 <th>Weight Avarange (WA)</th>
@@ -173,7 +173,6 @@
                             @foreach ($kandidats as $kandidat)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-
                                     <td>{{ $kandidat->nama_kandidat }}</td>
                                     <td class="text-center">
                                         @if ($defuzzifikasi[$kandidat->id]['atas'] !== '-')
@@ -190,7 +189,6 @@
                                             -
                                         @endif
                                     </td>
-
                                     <td>
                                         @php
                                             $alpha = number_format($defuzzifikasi[$kandidat->id]['wa']) ?? 0;

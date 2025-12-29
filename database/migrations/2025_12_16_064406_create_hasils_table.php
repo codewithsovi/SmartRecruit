@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('kandidat_id');
             $table->foreign('kandidat_id')->references('id')->on('kandidats')->onDelete('cascade');
-            $table->unsignedBigInteger('kriteria_id');
-            $table->foreign('kriteria_id')->references('id')->on('kriterias')->onDelete('cascade');
             $table->float('nilai_akhir');
             $table->timestamps();
         });

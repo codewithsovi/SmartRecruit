@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Alternatif;
+use App\Models\Kandidat;
 use Illuminate\Database\Eloquent\Model;
 
 class Hasil extends Model
@@ -15,8 +15,8 @@ class Hasil extends Model
         // Add other fillable fields as necessary
     ];
 
-    public function alternatif()
+    public function kandidat()
     {
-        return $this->belongsTo(Alternatif::class);
+        return $this->belongsTo(Kandidat::class);
     }
 }
