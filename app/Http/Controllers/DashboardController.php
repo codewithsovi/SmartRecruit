@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use \App\Models\Kriteria;
+use \App\Models\User;
+use \App\Models\Kandidat;
+use \App\Models\Jabatan;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,10 +16,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $users = \App\Models\User::count();
-        $kriterias = \App\Models\Kriteria::count();
-        $kandidats = \App\Models\Kandidat::count();
-        $jabatans = \App\Models\Jabatan::count();
+        $users = User::count();
+        $kriterias = Kriteria::count();
+        $kandidats = Kandidat::count();
+        $jabatans = Jabatan::count();
         $data = [
             'users' => $users,
             'kriterias' => $kriterias,
