@@ -8,7 +8,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center gap-2">
                 <div class="py-3 d-flex justify-content-start align-items-center gap-2">
-                    <p>Diperlukan <strong>{{ $jumlahAturan }}</strong> aturan fuzzy.</p>
+                    <a href="">Rentang Aturan</a>
                 </div>
 
                 <div class="py-3 d-flex justify-content-end align-items-center gap-2">
@@ -53,13 +53,19 @@
                                             @endforeach
                                     </td>
                                     <td>
-                                        @if ($aturan->nilai == 1)
-                                            <span class="badge bg-success text-white">Layak</span>
-                                        @else
-                                            <span class="badge bg-danger text-white">Tidak Layak</span>
-                                        @endif
-                                    </td>                                                               
+                                        <span class="badge 
+                                            @if ($aturan->nilai >= 70) bg-success
+                                            @elseif ($aturan->nilai >= 50) bg-primary
+                                            @elseif ($aturan->nilai >= 30) bg-warning
+                                            @else bg-danger
+                                            @endif
+                                            text-white">
+                                            {{ $aturan->nilai == floor($aturan->nilai) ? number_format($aturan->nilai, 0, '.', '') : number_format($aturan->nilai, 3, '.', '') }}
+                                        </span>
+                                    </td>  
+                                                                  
                                 </tr>
+                                
                             @endforeach
                         </tbody>
                     </table>
