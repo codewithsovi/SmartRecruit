@@ -110,7 +110,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             @foreach ($ruleResult as $data)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
@@ -127,24 +126,27 @@
                                         {{ $detail ? ucfirst($detail->himpunan->nama_himpunan) : '-' }}
                                     </td>
                                 @endforeach
-
-                                <td>
-                                        @if ($data['aturan']->nilai == 1)
-                                            <span class="badge bg-success text-white">1</span>
-                                        @else
-                                            <span class="badge bg-danger text-white">0</span>
-                                        @endif
-                                    </td>  
-
-                                {{-- Nilai tiap Kandidat --}}
-                                @foreach ($kandidats as $kandidat)
                                     <td>
-                                        {{ number_format($data['kandidat'][$kandidat->id] ?? 0, 3) }}
+                                        <span class="badge 
+                                            @if ($data['aturan']->nilai >= 70) bg-success
+                                            @elseif ($data['aturan']->nilai >= 50) bg-primary
+                                            @elseif ($data['aturan']->nilai >= 30) bg-warning
+                                            @else bg-danger
+                                            @endif
+                                            text-white">
+                                            {{ $data['aturan']->nilai == floor($data['aturan']->nilai) ? number_format($data['aturan']->nilai, 0, '.', '') : number_format($data['aturan']->nilai, 3, '.', '') }}
+                                        </span>
                                     </td>
-                                @endforeach
+                                    {{-- Nilai tiap Kandidat --}}
+                                    @foreach ($kandidats as $kandidat)
+                                        <td>
+                                            @php
+                                                $alpha = $data['kandidat'][$kandidat->id] ?? 0;
+                                            @endphp
+                                            {{ $alpha == floor($alpha) ? number_format($alpha, 0, '.', '') : number_format($alpha, 3, '.', '') }}
+                                        </td>
+                                    @endforeach
                             </tr>
-
-                            
                             @endforeach
                         </tbody>
                     </table>
@@ -190,7 +192,10 @@
                                     </td>
 
                                     <td>
-                                        {{ number_format($defuzzifikasi[$kandidat->id]['wa'], 3) }}
+                                        @php
+                                            $alpha = number_format($defuzzifikasi[$kandidat->id]['wa']) ?? 0;
+                                        @endphp
+                                            {{ $alpha == floor($alpha) ? number_format($alpha, 0, '.', '') : number_format($alpha, 3, '.', '') }}
                                     </td>                                  
                                 </tr>
                             @endforeach

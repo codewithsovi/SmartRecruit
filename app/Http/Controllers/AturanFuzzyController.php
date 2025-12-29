@@ -28,71 +28,72 @@ class AturanFuzzyController extends Controller
 
    
     public function generate()
-{
-    $kriterias = Kriteria::all();
-    $himpunan = HimpunanFuzzy::all(); // rendah, sedang, tinggi
+    {
+            $kriterias = Kriteria::all();
+            $himpunan = HimpunanFuzzy::all(); // rendah, sedang, tinggi
 
-    // mapping konstanta Sugeno
-    $map = [
-        'rendah' => 0,
-        'sedang' => 1,
-        'tinggi' => 2
-    ];
-    // hapus aturan lama (opsional)
-    DB::table('aturan_details')->delete();
-    DB::table('aturan_fuzzies')->delete();
+            // mapping konstanta Sugeno
+            $map = [
+                'rendah' => 0,
+                'sedang' => 1,
+                'tinggi' => 2
 
-    $kombinasi = [];
-
-foreach ($kriterias as $kriteria) {
-
-    $himpunanPerKriteria = HimpunanFuzzy::where('kriteria_id', $kriteria->id)->get();
-
-    if (count($kombinasi) === 0) {
-        foreach ($himpunanPerKriteria as $h) {
-            $kombinasi[] = [
-                $kriteria->id => $h->id
             ];
+            // hapus aturan lama (opsional)
+            DB::table('aturan_details')->delete();
+            DB::table('aturan_fuzzies')->delete();
+
+            $kombinasi = [];
+
+        foreach ($kriterias as $kriteria) {
+
+            $himpunanPerKriteria = HimpunanFuzzy::where('kriteria_id', $kriteria->id)->get();
+
+            if (count($kombinasi) === 0) {
+                foreach ($himpunanPerKriteria as $h) {
+                    $kombinasi[] = [
+                        $kriteria->id => $h->id
+                    ];
+                }
+                continue;
+            }
+
+            $temp = [];
+            foreach ($kombinasi as $komb) {
+                foreach ($himpunanPerKriteria as $h) {
+                    $temp[] = $komb + [
+                        $kriteria->id => $h->id
+                    ];
+                }
+            }
+
+            $kombinasi = $temp;
         }
-        continue;
-    }
+            foreach ($kombinasi as $index => $aturan) {
 
-    $temp = [];
-    foreach ($kombinasi as $komb) {
-        foreach ($himpunanPerKriteria as $h) {
-            $temp[] = $komb + [
-                $kriteria->id => $h->id
-            ];
-        }
-    }
+                $total = 0;
 
-    $kombinasi = $temp;
-}
-    foreach ($kombinasi as $index => $aturan) {
+                foreach ($aturan as $himpunan_id) {
+                    $nama = HimpunanFuzzy::find($himpunan_id)->nama_himpunan;
+                    $total += $map[$nama];
+                }
 
-        $total = 0;
+                $nilaiThen = ($total / (count($kriterias) * 2)) * 100;
 
-        foreach ($aturan as $himpunan_id) {
-            $nama = HimpunanFuzzy::find($himpunan_id)->nama_himpunan;
-            $total += $map[$nama];
-        }
+                $rule = AturanFuzzy::create([
+                    'nama_aturan' => 'R' . ($index + 1),
+                    'nilai' => $nilaiThen
+                ]);
 
-        $nilaiThen = $total >= 3 ? 1 : 0;
+                foreach ($aturan as $kriteria_id => $himpunan_id) {
+                    AturanDetail::create([
+                        'aturan_fuzzy_id' => $rule->id,
+                        'kriteria_id' => $kriteria_id,
+                        'himpunan_fuzzy_id' => $himpunan_id
+                    ]);
+                }
+            }
 
-        $rule = AturanFuzzy::create([
-            'nama_aturan' => 'R' . ($index + 1),
-            'nilai' => $nilaiThen
-        ]);
-
-        foreach ($aturan as $kriteria_id => $himpunan_id) {
-            AturanDetail::create([
-                'aturan_fuzzy_id' => $rule->id,
-                'kriteria_id' => $kriteria_id,
-                'himpunan_fuzzy_id' => $himpunan_id
-            ]);
-        }
-    }
-
-    return back()->with('success', 'Aturan fuzzy berhasil digenerate otomatis');
-}  
+            return back()->with('success', 'Aturan fuzzy berhasil digenerate otomatis');
+    }  
 }

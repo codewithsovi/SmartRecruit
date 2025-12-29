@@ -47,7 +47,6 @@ class PerhitunganController extends Controller
             }
 
             // inrefernsi (rule evaluation)
-
         $aturanFuzzies = AturanFuzzy::with('details.himpunan')->get();
 
         $ruleResult = $this->hitungRuleFuzzy(
@@ -60,23 +59,7 @@ class PerhitunganController extends Controller
         $ruleResult = $this->hitungRuleFuzzy($aturanFuzzies, $kandidats, $derajat);
         $defuzzifikasi = $this->hitungDefuzzifikasi($ruleResult, $kandidats);
 
-            uasort($defuzzifikasi, function ($a, $b) {
-                return $b['wa'] <=> $a['wa'];
-            });
-
-            $kandidatsSorted = collect($defuzzifikasi)->map(function ($val, $kandidatId) use ($kandidats) {
-                return $kandidats->firstWhere('id', $kandidatId);
-            });
-
-        return view('perhitungan.perhitungan', [
-            'kriterias'      => $kriterias,
-            'jabatan'        => $jabatan,
-            'kandidats'      => $kandidatsSorted,
-            'derajat'        => $derajat,
-            'ruleResult'     => $ruleResult,
-            'defuzzifikasi'  => $defuzzifikasi
-]);
-        // return view('perhitungan.perhitungan', compact('kriterias', 'jabatan',    'kandidats'      => $kandidatsSorted, 'derajat', 'ruleResult', 'defuzzifikasi'));
+        return view('perhitungan.perhitungan', compact('kriterias', 'jabatan', 'kandidats' ,'derajat', 'ruleResult', 'defuzzifikasi'));
     }
 
 
