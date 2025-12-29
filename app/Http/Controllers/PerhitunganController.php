@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Jabatan;
 use App\Models\Kriteria;
 use App\Models\AturanFuzzy;
+use App\Models\Hasil;
 use Illuminate\Http\Request;
 
 class PerhitunganController extends Controller
@@ -15,53 +16,68 @@ class PerhitunganController extends Controller
         return view('perhitungan.jabatan', compact('jabatans'));
     }
 
-    public function index($jabatan_id)
-    {
-        $jabatan = Jabatan::findOrFail($jabatan_id);
-        $kriterias = Kriteria::whereHas('alternatif')->get();
-        $kandidats = $jabatan->kandidat()
-            ->whereHas('alternatif', function ($q) { $q->whereNotNull('bobot');})
-            ->with('alternatif')
-            ->get();
-
-            // fuzzification
-        $derajat = [];
-
-            foreach ($kandidats as $kandidat) {
-                foreach ($kriterias as $kriteria) {
-
-                    // ambil bobot kandidat untuk kriteria ini
-                    $alternatif = $kandidat->alternatif
-                        ->where('kriteria_id', $kriteria->id)
-                        ->first();
-
-                    if (!$alternatif) continue;
-
-                    $x = $alternatif->bobot;
-
-                    foreach ($kriteria->himpunanFuzzies as $himpunan) {
-                        $derajat[$kandidat->id][$kriteria->id][$himpunan->id] =
-                            $this->hitungDerajat($x, $himpunan);
-                    }
-                }
+   public function index($jabatan_id)
+{
+    $jabatan = Jabatan::findOrFail($jabatan_id);
+    $kriterias = Kriteria::whereHas('alternatif')->get();
+    $kandidats = $jabatan->kandidat()
+        ->whereHas('alternatif', function ($q) { 
+            $q->whereNotNull('bobot');
+        })
+        ->with('alternatif')
+        ->get();
+    
+    // fuzzification
+    $derajat = [];
+    foreach ($kandidats as $kandidat) {
+        foreach ($kriterias as $kriteria) {
+            $alternatif = $kandidat->alternatif
+                ->where('kriteria_id', $kriteria->id)
+                ->first();
+                
+            if (!$alternatif) continue;
+            
+            $x = $alternatif->bobot;
+            
+            foreach ($kriteria->himpunanFuzzies as $himpunan) {
+                $derajat[$kandidat->id][$kriteria->id][$himpunan->id] =
+                    $this->hitungDerajat($x, $himpunan);
             }
-
-            // inrefernsi (rule evaluation)
-        $aturanFuzzies = AturanFuzzy::with('details.himpunan')->get();
-
-        $ruleResult = $this->hitungRuleFuzzy(
-            $aturanFuzzies,
-            $kandidats,
-            $derajat
-        );
-
-        // defuzzification
-        $ruleResult = $this->hitungRuleFuzzy($aturanFuzzies, $kandidats, $derajat);
-        $defuzzifikasi = $this->hitungDefuzzifikasi($ruleResult, $kandidats);
-
-        return view('perhitungan.perhitungan', compact('kriterias', 'jabatan', 'kandidats' ,'derajat', 'ruleResult', 'defuzzifikasi'));
+        }
     }
-
+    
+    // inferensi (rule evaluation)
+    $aturanFuzzies = AturanFuzzy::with('details.himpunan')->get();
+    $ruleResult = $this->hitungRuleFuzzy(
+        $aturanFuzzies,
+        $kandidats,
+        $derajat
+    );
+    
+    // defuzzification
+    $defuzzifikasi = $this->hitungDefuzzifikasi($ruleResult, $kandidats);
+    
+    // simpan ke database
+    foreach ($kandidats as $kandidat) {
+        Hasil::updateOrCreate(
+            [
+                'kandidat_id' => $kandidat->id,
+            ],
+            [
+                'nilai_akhir' => $defuzzifikasi[$kandidat->id]['wa'],
+            ]
+        );
+    }
+    
+    return view('perhitungan.perhitungan', compact(
+        'kriterias', 
+        'jabatan', 
+        'kandidats', 
+        'derajat', 
+        'ruleResult', 
+        'defuzzifikasi'
+    ));
+}
 
     private function hitungDerajat($x, $himpunan)
     {
@@ -153,8 +169,8 @@ class PerhitunganController extends Controller
                 $pembilang += $alpha * $z;
                 $penyebut  += $alpha;
 
-                $atas[]  = "({$alpha} × {$z})";
-                $bawah[] = $alpha;
+                $atas[] = '(' . number_format($alpha, 3) . ' × ' . $z . ')';
+                $bawah[] = number_format($alpha, 3);
             }
         }
 

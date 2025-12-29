@@ -69,6 +69,12 @@
              <span>Perhitungan</span>
          </a>
      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.hasil.jabatan') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Hasil Seleksi</span>
+            </a>
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
 

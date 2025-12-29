@@ -15,12 +15,12 @@
                     <span class="text">Tabel Jabatan</span>
                 </a>
 
-                <a href="#" class="btn btn-primary btn-icon-split d-flex align-items-center float-right">
+                <!-- <a href="#" class="btn btn-primary btn-icon-split d-flex align-items-center float-right">
                     <span class="icon text-white-50">
                         <i class="fas fa-plus"></i>
                     </span>
                     @include('PenilaianAlternatif.modal-create')
-                </a>   
+                </a>    -->
             </div>
             
             <div class="card-body">

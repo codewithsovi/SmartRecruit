@@ -10,6 +10,7 @@ use App\Http\Controllers\HimpunanFuzzyController;
 use App\Http\Controllers\AturanFuzzyController;
 use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\PerhitunganController;
+use App\Http\Controllers\HasilController;
 
 Route::get('/', function () {
     return view('landing-page');
@@ -84,5 +85,14 @@ Route::prefix('admin')->group(function () {
             Route::get('/', 'jabatan')->name('jabatan');
             Route::get('/perhitungan/{jabatan_id}', 'index')->name('index.byJabatan');
         });
-
+    
+    Route::prefix('hasil')
+        ->as('admin.hasil.')
+        ->controller(HasilController::class)
+        ->group(function () {
+            Route::get('/', 'jabatan')->name('jabatan');
+            Route::get('/hasil/{jabatan_id}', 'index')->name('index.byJabatan');
+        });
 });
+
+
