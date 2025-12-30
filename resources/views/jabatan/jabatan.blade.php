@@ -37,7 +37,6 @@
                                     <td>
                                         <div class="d-flex">
                                             <div class="me-2">
-                                                {{-- button edit --}}
                                                  @include('jabatan.modal-edit')
                                             </div>
 

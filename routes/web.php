@@ -12,15 +12,25 @@ use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\PerhitunganController;
 use App\Http\Controllers\HasilController;
 use App\Http\Controllers\SesiController;
+use App\Http\Controllers\ManajemenUserController;
 
 Route::get('/', function () {
     return view('landing-page');
 })->name('home');
 
-Route::middleware(['isLogin'])->group(function () {
 
-    Route::prefix('admin')->middleware(['isLogin', 'userAkses:admin'])->group(function () {
+Route::prefix('admin')->middleware(['isLogin', 'userAkses:admin'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::prefix('manajemen-user')
+        ->as('admin.manajemenUser.')
+        ->controller(ManajemenUserController::class)
+        ->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/store', 'store')->name('store');
+            Route::put('/update/{id}', 'update')->name('update');
+            Route::delete('/delete/{id}', 'destroy')->name('delete');
+        });
 
         Route::prefix('jabatan')
             ->as('admin.jabatan.')
@@ -96,8 +106,6 @@ Route::middleware(['isLogin'])->group(function () {
                 Route::get('/', 'jabatan')->name('jabatan');
                 Route::get('/hasil/{jabatan_id}', 'index')->name('index.byJabatan');
             });
-    });
-
 });
 
  Route::middleware(['sudahLogin'])->group(function () {
