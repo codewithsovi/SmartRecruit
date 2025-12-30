@@ -33,7 +33,7 @@
                             </option>
                         </select>
 
-                    <input type="hidden" name="kandidat_id" value="{{ $kandidat->id }}">
+                        <input type="hidden" name="kandidat_id" value="{{ $kandidat->id }}">
 
                     </div>
 

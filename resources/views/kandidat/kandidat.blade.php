@@ -9,7 +9,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
- <a href="{{ route('admin.jabatan.index') }}">Jabatan - {{ $jabatan->nama_jabatan }}</a>
+                <a href="{{ route('admin.jabatan.index') }}">Jabatan - {{ $jabatan->nama_jabatan }}</a>
 
                 <a href="#" class="btn btn-primary btn-icon-split d-flex align-items-center float-right">
                     <span class="icon text-white-50">
