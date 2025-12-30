@@ -15,9 +15,6 @@ class ManajemenUserController extends Controller
         return view('manajemenUser.index', compact('users'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([

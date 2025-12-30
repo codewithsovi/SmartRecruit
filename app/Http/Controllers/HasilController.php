@@ -13,9 +13,9 @@ class HasilController extends Controller
         return view('hasilAkhir.jabatan', compact('jabatans'));
     }
 
-    public function index()
+    public function index($jabatan_id)
     {
-        $jabatan = Jabatan::whereHas('kandidat')->first();
+        $jabatan = Jabatan::whereHas('kandidat')->findOrFail($jabatan_id);
 
         // Ambil kandidat yang terdaftar di jabatan ini
         $kandidatIds = $jabatan->kandidat()->pluck('id');
