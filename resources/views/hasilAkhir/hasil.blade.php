@@ -9,7 +9,12 @@
         <!-- DataTales Example -->
        <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-start align-items-center gap-2">
-               <h1 class="h4 mb-2 text-gray-800">Perankingan</h1>
+               <a href="{{ route('admin.hasil.jabatan') }}" class="btn btn-secondary btn-icon-split d-flex align-items-center float-right mr-2">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-arrow-left"></i>
+                    </span>
+                    <span class="text">Tabel Jabatan</span>
+                </a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
