@@ -12,9 +12,6 @@
                 </div>
 
                 <div class="py-3 d-flex justify-content-end align-items-center gap-2">
-
-                    
-
                     <a href="#" class="btn btn-primary btn-icon-split d-flex align-items-center float-right">
                         <form action="{{ route('admin.aturan.generate') }}" method="POST">
                             @csrf

@@ -12,7 +12,7 @@
 
                 <div class="modal-header bg-primary">
                     <h5 class="modal-title text-white" id="himpunanModalLabel">
-                        Tambah Himpunan
+                        Tambah Himpunan ({{ $kriteria->nama_kriteria }})
                     </h5>
                     <button type="button" class="close text-white" data-dismiss="modal">
                         <span>&times;</span>
