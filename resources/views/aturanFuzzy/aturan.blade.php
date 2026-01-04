@@ -25,7 +25,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -33,7 +32,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Aturan</th>
-                                <th>THEN</th>
+                                <th>Output</th>
                             </tr>
                         </thead>
                         <tbody>

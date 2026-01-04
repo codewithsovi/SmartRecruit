@@ -46,7 +46,7 @@ Route::prefix('admin')->middleware(['isLogin', 'userAkses:admin'])->group(functi
             ->as('admin.kandidat.')
             ->controller(KandidatController::class)
             ->group(function () {
-                Route::get('/kandidat/{jabatan_id}', 'index')->name('index.byJabatan');
+                Route::get('jabatan/{jabatan_id}', 'index')->name('index.byJabatan');
                 Route::post('/store', 'store')->name('store.byJabatan');
                 Route::put('/update/{kandidat}', 'update')->name('update.byJabatan');
                 Route::delete('/delete/{kandidat}', 'destroy')->name('delete.byJabatan');
@@ -66,7 +66,7 @@ Route::prefix('admin')->middleware(['isLogin', 'userAkses:admin'])->group(functi
             ->as('admin.himpunan.')
             ->controller(HimpunanFuzzyController::class)
             ->group(function () {
-                Route::get('/himpunan/{kriteria_id}', 'index')->name('index.byKriteria');
+                Route::get('/kriteria/{kriteria_id}', 'index')->name('index.byKriteria');
                 Route::post('/store', 'store')->name('store.byKriteria');
                 Route::put('/update/{himpunanFuzzy}', 'update')->name('update.byKriteria');
                 Route::delete('/delete/{himpunanFuzzy}', 'destroy')->name('delete.byKriteria');
@@ -85,7 +85,7 @@ Route::prefix('admin')->middleware(['isLogin', 'userAkses:admin'])->group(functi
             ->controller(AlternatifController::class)
             ->group(function () {
                 Route::get('/jabatan', 'jabatan')->name('jabatan');
-                Route::get('/alternatif/{jabatan_id}', 'index')->name('index.byJabatan');
+                Route::get('/{jabatan_id}', 'index')->name('index.byJabatan');
                 Route::post('/store', 'store')->name('store.byJabatan');
                 Route::put('/update/{kandidat}', 'update')->name('update.byJabatan');
                 Route::delete('/delete/{kandidat}', 'destroy')->name('delete.byJabatan');
@@ -95,8 +95,8 @@ Route::prefix('admin')->middleware(['isLogin', 'userAkses:admin'])->group(functi
             ->as('admin.perhitungan.')
             ->controller(PerhitunganController::class)
             ->group(function () {
-                Route::get('/', 'jabatan')->name('jabatan');
-                Route::get('/perhitungan/{jabatan_id}', 'index')->name('index.byJabatan');
+                Route::get('/jabatan', 'jabatan')->name('jabatan');
+                Route::get('/jabatan/{jabatan_id}', 'index')->name('index.byJabatan');
             });
         
         Route::prefix('hasil')
@@ -104,7 +104,7 @@ Route::prefix('admin')->middleware(['isLogin', 'userAkses:admin'])->group(functi
             ->controller(HasilController::class)
             ->group(function () {
                 Route::get('/', 'jabatan')->name('jabatan');
-                Route::get('/hasil/{jabatan_id}', 'index')->name('index.byJabatan');
+                Route::get('/jabatan/{jabatan_id}', 'index')->name('index.byJabatan');
             });
 });
 

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('aturan_fuzzies', function (Blueprint $table) {
             $table->id();
             $table->string('nama_aturan');
-            $table->unsignedBigInteger('nilai');
+            $table->float('nilai');
             $table->timestamps();
         });
     }

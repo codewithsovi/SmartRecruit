@@ -15,11 +15,15 @@ class KandidatSeeder extends Seeder
     {
         DB::table('kandidats')->insert([
             [
-                'nama_kandidat' => 'Alice Johnson',
+                'nama_kandidat' => 'Sovi',
                 'jabatan_id' => 1,
             ],
             [
-                'nama_kandidat' => 'Bob Smith',
+                'nama_kandidat' => 'Alfi',
+                'jabatan_id' => 1,
+            ],
+            [
+                'nama_kandidat' => 'Nafilah',
                 'jabatan_id' => 1,
             ],
         ]);
