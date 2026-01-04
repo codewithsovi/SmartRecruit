@@ -39,36 +39,39 @@ class AturanFuzzyController extends Controller
                 'tinggi' => 2
 
             ];
-            // hapus aturan lama (opsional)
+            // hapus aturan lama 
             DB::table('aturan_details')->delete();
             DB::table('aturan_fuzzies')->delete();
 
+            // ngitung banyak kombinasi (aturan)
             $kombinasi = [];
 
-        foreach ($kriterias as $kriteria) {
+            foreach ($kriterias as $kriteria) {
 
-            $himpunanPerKriteria = HimpunanFuzzy::where('kriteria_id', $kriteria->id)->get();
+                $himpunanPerKriteria = HimpunanFuzzy::where('kriteria_id', $kriteria->id)->get();
 
-            if (count($kombinasi) === 0) {
-                foreach ($himpunanPerKriteria as $h) {
-                    $kombinasi[] = [
-                        $kriteria->id => $h->id
-                    ];
+                if (count($kombinasi) === 0) {
+                    foreach ($himpunanPerKriteria as $h) {
+                        $kombinasi[] = [
+                            $kriteria->id => $h->id
+                        ];
+                    }
+                    continue;
                 }
-                continue;
+
+                $temp = [];
+                foreach ($kombinasi as $komb) {
+                    foreach ($himpunanPerKriteria as $h) {
+                        $temp[] = $komb + [
+                            $kriteria->id => $h->id
+                        ];
+                    }
+                }
+
+                $kombinasi = $temp;
             }
 
-            $temp = [];
-            foreach ($kombinasi as $komb) {
-                foreach ($himpunanPerKriteria as $h) {
-                    $temp[] = $komb + [
-                        $kriteria->id => $h->id
-                    ];
-                }
-            }
-
-            $kombinasi = $temp;
-        }
+            // menenukan nilai then untuk setiap aturan (normalisasi)
             foreach ($kombinasi as $index => $aturan) {
 
                 $total = 0;
@@ -80,11 +83,13 @@ class AturanFuzzyController extends Controller
 
                 $nilaiThen = ($total / (count($kriterias) * 2)) * 100;
 
+                // simpan aturan
                 $rule = AturanFuzzy::create([
                     'nama_aturan' => 'R' . ($index + 1),
                     'nilai' => $nilaiThen
                 ]);
 
+                // simpan detail aturan
                 foreach ($aturan as $kriteria_id => $himpunan_id) {
                     AturanDetail::create([
                         'aturan_fuzzy_id' => $rule->id,

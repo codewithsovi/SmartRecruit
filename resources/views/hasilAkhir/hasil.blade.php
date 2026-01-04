@@ -31,20 +31,17 @@
                                 <tr>
                                     <td>
                                         @if ($loop->iteration == 1)
-                                            <span class="badge bg-warning text-dark">🥇 1</span>
+                                            <span class="badge bg-warning text-dark">1</span>
                                         @elseif ($loop->iteration == 2)
-                                            <span class="badge bg-secondary text-white">🥈 2</span>
+                                            <span class="badge bg-secondary text-white">2</span>
                                         @elseif ($loop->iteration == 3)
-                                            <span class="badge bg-danger text-white">🥉 3</span>
+                                            <span class="badge bg-danger text-white">3</span>
                                         @else
                                             <span class="badge bg-light text-dark">{{ $loop->iteration }}</span>
                                         @endif
                                     </td>
                                     <td>
                                         {{ $hasil->kandidat->nama_kandidat }}
-                                        @if ($loop->iteration == 1)
-                                            <span class="badge bg-success ms-2 text-white">Terbaik</span>
-                                        @endif
                                     </td>
                                    
                                     <td>

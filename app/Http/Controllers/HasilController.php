@@ -20,7 +20,7 @@ class HasilController extends Controller
         // Ambil kandidat yang terdaftar di jabatan ini
         $kandidatIds = $jabatan->kandidat()->pluck('id');
 
-        // Ambil hasil berdasarkan kandidat-kandidat tersebut, URUTKAN berdasarkan nilai_akhir DESC
+        // Ambil hasil berdasarkan kandidat tsb, URUT berdasarkan nilai_akhir DESC
         $hasils = Hasil::whereIn('kandidat_id', $kandidatIds)
             ->orderBy('nilai_akhir', 'desc')
             ->get();

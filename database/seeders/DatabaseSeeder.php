@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             JabatanSeeder::class,
             KandidatSeeder::class,
             UserSeeder::class,
+            KriteriaSeeder::class,
             // Add other seeders here as necessary
         ]);
     }
