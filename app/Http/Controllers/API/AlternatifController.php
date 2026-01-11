@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\API;
+
 use App\Models\Alternatif;
 use App\Models\Jabatan;
 use App\Models\Kriteria;
@@ -13,13 +14,19 @@ use Illuminate\Support\Facades\DB;
 
 class AlternatifController extends Controller
 {
-        public function jabatan()
+    public function jabatan()
     {
         $jabatans = Jabatan::whereHas('kandidat')
             ->withCount('kandidat')
             ->get();
 
         return ApiResponse::success('Data jabatan', $jabatans, 200);
+    }
+
+    public function kriteria()
+    {
+        $kriterias = \App\Models\Kriteria::all();
+        return ApiResponse::success('Data kriteria', $kriterias, 200);
     }
 
     public function index($jabatan_id)
@@ -36,7 +43,7 @@ class AlternatifController extends Controller
         }
     }
 
-      public function store(Request $request)
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'kandidat_id'   => 'required|exists:kandidats,id',
@@ -77,7 +84,6 @@ class AlternatifController extends Controller
                 $data,
                 201
             );
-
         } catch (\Exception $e) {
             return ApiResponse::error(
                 'Failed to create alternatif',
@@ -87,7 +93,7 @@ class AlternatifController extends Controller
         }
     }
 
-      public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             'kandidat_id'   => 'required|exists:kandidats,id',
@@ -96,10 +102,12 @@ class AlternatifController extends Controller
             'bobot'         => 'required|array',
         ]);
 
-        if ($validator->fails()) { return ApiResponse::error('Validation failed',$validator->errors(), 422);
+        if ($validator->fails()) {
+            return ApiResponse::error('Validation failed', $validator->errors(), 422);
         }
 
-        if (count($request->kriteria_id) !== count($request->bobot)) { return ApiResponse::error('Jumlah kriteria dan bobot tidak sesuai', null, 422);
+        if (count($request->kriteria_id) !== count($request->bobot)) {
+            return ApiResponse::error('Jumlah kriteria dan bobot tidak sesuai', null, 422);
         }
 
         try {
@@ -118,9 +126,11 @@ class AlternatifController extends Controller
                 }
             });
 
-            return ApiResponse::success('Penilaian kandidat berhasil diperbarui', null, 200
+            return ApiResponse::success(
+                'Penilaian kandidat berhasil diperbarui',
+                null,
+                200
             );
-
         } catch (\Exception $e) {
             return ApiResponse::error(
                 'Failed to update penilaian kandidat',
@@ -128,14 +138,17 @@ class AlternatifController extends Controller
                 500
             );
         }
-}
+    }
 
     public function destroy($kandidat_id)
     {
         try {
             DB::transaction(function () use ($kandidat_id) {
-        Alternatif::where('kandidat_id', $kandidat_id)->delete();
-     });
+
+                Alternatif::where('kandidat_id', $kandidat_id)->delete();
+            });
+
+
             return ApiResponse::success('alternatif deleted successfully', null, 200);
         } catch (\Exception $e) {
             return ApiResponse::error('Failed to delete alternatif', $e->getMessage(), 500);

@@ -46,8 +46,6 @@ class AuthController extends Controller
         if (!Auth::attempt($credentials)) {
             return ApiResponse::error('Invalid email or password', null, 401);
         }
-
-        // $user = auth()->Auth::user();
         $user = Auth::user();
         $token = $user->createToken('mobile_token')->plainTextToken;
 

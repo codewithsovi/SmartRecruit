@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\API;
+
 use App\Models\Jabatan;
 use App\Models\Kandidat;
 use App\Models\Hasil;
@@ -8,7 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Helpers\ApiResponse;
 use Illuminate\Support\Facades\Validator;
-    
+
 class HasilController extends Controller
 {
     public function jabatan()
@@ -24,6 +25,7 @@ class HasilController extends Controller
 {
     try {
         $jabatan = Jabatan::whereHas('kandidat')->findOrFail($jabatan_id);
+
 
         // Ambil kandidat pada jabatan tersebut
         $kandidatIds = $jabatan->kandidat()->pluck('id');
@@ -45,6 +47,7 @@ class HasilController extends Controller
             'message' => 'Gagal menampilkan hasil',
             'error'   => $e->getMessage()
         ], 500);
+
     }
 }
 }
