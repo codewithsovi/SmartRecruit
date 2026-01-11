@@ -21,21 +21,30 @@ class HasilController extends Controller
     }
 
     public function index($jabatan_id)
-    {
-        try {
-            $jabatan = Jabatan::whereHas('kandidat')->findOrFail($jabatan_id);
+{
+    try {
+        $jabatan = Jabatan::whereHas('kandidat')->findOrFail($jabatan_id);
 
-            // Ambil kandidat yang terdaftar di jabatan ini
-            $kandidatIds = $jabatan->kandidat()->pluck('id');
+        // Ambil kandidat pada jabatan tersebut
+        $kandidatIds = $jabatan->kandidat()->pluck('id');
 
-            // Ambil hasil berdasarkan kandidat, URUTKAN berdasarkan nilai_akhir DESC
-            $hasils = Hasil::whereIn('kandidat_id', $kandidatIds)
-                ->orderBy('nilai_akhir', 'desc')
-                ->get();
+        // Ambil hasil dan urutkan berdasarkan nilai akhir tertinggi
+        $hasils = Hasil::whereIn('kandidat_id', $kandidatIds)
+            ->orderBy('nilai_akhir', 'desc')
+            ->get();
 
-            return ApiResponse::success('Hasils retrieved successfully', $hasils, 200);
-        } catch (\Exception $e) {
-            return ApiResponse::error('Failed to retrieve hasils', $e->getMessage(), 500);
-        }
+        return response()->json([
+            'success' => true,
+            'message' => 'Hasil berhasil ditampilkan',
+            'data'    => $hasils
+        ], 200);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Gagal menampilkan hasil',
+            'error'   => $e->getMessage()
+        ], 500);
     }
+}
 }
