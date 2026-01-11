@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\API;
+
 use App\Http\Helpers\ApiResponse;
 use App\Models\Kandidat;
 use App\Models\Jabatan;
@@ -12,9 +13,8 @@ class KandidatController extends Controller
 {
     public function jabatan()
     {
-        $jabatans = Jabatan::whereHas('kandidat')
-            ->withCount('kandidat')
-            ->get();
+        // Mengambil semua jabatan dan menghitung jumlah kandidatnya
+        $jabatans = Jabatan::withCount('kandidat')->get();
 
         return ApiResponse::success('Data jabatan', $jabatans, 200);
     }
@@ -22,15 +22,17 @@ class KandidatController extends Controller
     public function index($jabatan_id)
     {
         try {
-            $jabatan = Jabatan::findOrFail($jabatan_id);
-            $kandidats = Kandidat::where('jabatan_id', $jabatan_id) ->orderBy('id', 'desc')->paginate(10);
+            $kandidats = Kandidat::with('jabatan') // Tambahkan ini
+                ->where('jabatan_id', $jabatan_id)
+                ->orderBy('id', 'desc')
+                ->paginate(10);
             return ApiResponse::success('Kandidats retrieved successfully', $kandidats, 200);
         } catch (\Exception $e) {
-            return ApiResponse::error('Failed to retrieve kandidats', $e->getMessage(), 500);
+            return ApiResponse::error('Failed', $e->getMessage(), 500);
         }
     }
 
-     public function store(Request $request)
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'nama_kandidat' => 'required|string|max:255',
@@ -43,7 +45,7 @@ class KandidatController extends Controller
 
         try {
 
-           $kandidat = Kandidat::create([
+            $kandidat = Kandidat::create([
                 'nama_kandidat' => $request->nama_kandidat,
                 'jabatan_id' => $request->jabatan_id,
             ]);
@@ -89,5 +91,4 @@ class KandidatController extends Controller
             return ApiResponse::error('Failed to delete kandidat', $e->getMessage(), 500);
         }
     }
-
 }

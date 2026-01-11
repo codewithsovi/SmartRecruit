@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\API;
+
 use App\Http\Helpers\ApiResponse;
 use App\Models\Jabatan;
 use App\Http\Controllers\Controller;
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 class JabatanController extends Controller
 {
-     public function index()
+    public function index()
     {
         try {
             $jabatans = Jabatan::latest()->paginate(10);
@@ -31,7 +32,7 @@ class JabatanController extends Controller
 
         try {
 
-           $jabatan = Jabatan::create([
+            $jabatan = Jabatan::create([
                 'nama_jabatan' => $request->nama_jabatan,
             ]);
 
