@@ -136,7 +136,6 @@ class AlternatifController extends Controller
             DB::transaction(function () use ($kandidat_id) {
         Alternatif::where('kandidat_id', $kandidat_id)->delete();
      });
-
             return ApiResponse::success('alternatif deleted successfully', null, 200);
         } catch (\Exception $e) {
             return ApiResponse::error('Failed to delete alternatif', $e->getMessage(), 500);

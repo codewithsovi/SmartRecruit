@@ -16,8 +16,8 @@ class PerhitunganController extends Controller
         return view('perhitungan.jabatan', compact('jabatans'));
     }
 
-   public function index($jabatan_id)
-{
+   public function index($jabatan_id){
+    
     $jabatan = Jabatan::findOrFail($jabatan_id);
     $kriterias = Kriteria::whereHas('alternatif')->get();
     $kandidats = $jabatan->kandidat()
@@ -35,6 +35,7 @@ class PerhitunganController extends Controller
                 ->where('kriteria_id', $kriteria->id)
                 ->first();
                 
+                // next kriteria if alternatif not found
             if (!$alternatif) continue;
             
             $x = $alternatif->bobot;
@@ -46,7 +47,7 @@ class PerhitunganController extends Controller
         }
     }
     
-    // inferensi (rule evaluation)
+    // inferensi 
     $aturanFuzzies = AturanFuzzy::with('details.himpunan')->get();
     $ruleResult = $this->hitungRuleFuzzy(
         $aturanFuzzies,
@@ -119,13 +120,13 @@ class PerhitunganController extends Controller
     {
         $ruleResult = [];
 
-        foreach ($aturanFuzzies as $aturan) {
+        foreach ($aturanFuzzies as $aturan) { // untuk setiap aturan
 
-            foreach ($kandidats as $kandidat) {
+            foreach ($kandidats as $kandidat) { // untuk setiap kandidat
 
                 $nilaiRule = [];
 
-                foreach ($aturan->details as $detail) {
+                foreach ($aturan->details as $detail) { // untuk setiap detail aturan
 
                     $kriteriaId = $detail->kriteria_id;
                     $himpunanId = $detail->himpunan_fuzzy_id;
@@ -147,7 +148,7 @@ class PerhitunganController extends Controller
         return $ruleResult;
     }
 
-
+    
    private function hitungDefuzzifikasi($ruleResult, $kandidats)
 {
     $defuzzifikasi = [];
@@ -162,7 +163,9 @@ class PerhitunganController extends Controller
 
         foreach ($ruleResult as $rule) {
 
+            // hasil minimum
             $alpha = $rule['kandidat'][$kandidat->id] ?? 0;
+            // nilai konstanta then
             $z = $rule['aturan']->nilai;
 
             if ($alpha > 0) {
@@ -174,6 +177,7 @@ class PerhitunganController extends Controller
             }
         }
 
+        // menghitung WA
         $wa = $penyebut == 0 ? 0 : $pembilang / $penyebut;
 
         $defuzzifikasi[$kandidat->id] = [
