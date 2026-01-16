@@ -20,8 +20,8 @@ This project implements a **Fuzzy Logic-based decision support system (SPK)** fo
 
 ## Prerequisites
 
-- PHP 8.0+
-- Laravel 9+
+- PHP 8.3+ 
+- Laravel 12+
 - MySQL/MariaDB
 - Composer
 
